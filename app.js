@@ -1,6 +1,7 @@
 let products = [];
 let cart = [];
 let currentCategory = 'all';
+let currentProductId = null;
 
 async function loadProducts() {
     try {
@@ -17,6 +18,12 @@ async function loadProducts() {
         renderCategories(data.categories);
         renderProducts(products);
         updateProductsCount(products.length);
+
+        // Проверяем, есть ли товар в URL при загрузке страницы
+        const productFromUrl = getProductFromUrl();
+        if (productFromUrl) {
+            showProductModal(productFromUrl);
+        }
 
     } catch (error) {
         console.error('Error loading products:', error);
@@ -149,6 +156,18 @@ function createProductCard(product) {
 
 function showProductModal(product) {
     const modal = document.getElementById('product-modal');
+    currentProductId = product.id;
+
+    // Создаем URL-friendly slug из названия товара
+    const slug = createSlug(product.name);
+    const productUrl = `#product-${product.id}-${slug}`;
+
+    // Обновляем URL без перезагрузки страницы
+    history.pushState(
+        { productId: product.id, type: 'product' },
+        `${product.name} - СанТехКаталог`,
+        productUrl
+    );
 
     modal.querySelector('.modal-image img').src = product.image;
     modal.querySelector('.modal-title').textContent = product.name;
@@ -168,6 +187,9 @@ function showProductModal(product) {
     };
 
     modal.classList.add('active');
+
+    // Обновляем заголовок страницы
+    document.title = `${product.name} - СанТехКаталог - ИП Фролова О.Г.`;
 }
 
 function addToCart(product) {
@@ -247,6 +269,17 @@ function updateCartTotal() {
 
 function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('active');
+
+    if (modalId === 'product-modal' && currentProductId) {
+        // Возвращаемся к главной странице
+        history.pushState(
+            { type: 'main' },
+            'СанТехКаталог - ИП Фролова О.Г.',
+            window.location.pathname
+        );
+        document.title = 'Каталог сантехники - ИП Фролова О.Г.';
+        currentProductId = null;
+    }
 }
 
 function formatPrice(price) {
@@ -260,6 +293,67 @@ function formatPrice(price) {
 
 function updateProductsCount(count) {
     document.querySelector('.products-count').textContent = `Найдено: ${count}`;
+}
+
+function createSlug(text) {
+    return text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '') // удаляем специальные символы
+        .replace(/\s+/g, '-') // заменяем пробелы на дефисы
+        .replace(/-+/g, '-') // заменяем множественные дефисы на один
+        .trim();
+}
+
+function getProductFromUrl() {
+    const hash = window.location.hash;
+    if (hash.startsWith('#product-')) {
+        const productId = parseInt(hash.split('-')[1]);
+        return products.find(p => p.id === productId);
+    }
+    return null;
+}
+
+function handleBrowserNavigation(event) {
+    if (event.state) {
+        if (event.state.type === 'product' && event.state.productId) {
+            const product = products.find(p => p.id === event.state.productId);
+            if (product) {
+                showProductModal(product);
+            }
+        } else if (event.state.type === 'main') {
+            closeModal('product-modal');
+        }
+    } else {
+        // Пользователь нажал назад на главной странице
+        closeModal('product-modal');
+    }
+}
+
+function shareProduct() {
+    const currentUrl = window.location.href;
+
+    if (navigator.share) {
+        // Используем нативный API для мобильных устройств
+        navigator.share({
+            title: document.title,
+            text: 'Посмотрите этот товар в каталоге сантехники',
+            url: currentUrl
+        });
+    } else {
+        // Копируем ссылку в буфер обмена для десктопа
+        navigator.clipboard.writeText(currentUrl).then(() => {
+            showNotification('Ссылка скопирована в буфер обмена!');
+        }).catch(() => {
+            // Fallback для старых браузеров
+            const textArea = document.createElement('textarea');
+            textArea.value = currentUrl;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showNotification('Ссылка скопирована в буфер обмена!');
+        });
+    }
 }
 
 function showNotification(message) {
@@ -287,11 +381,21 @@ function showNotification(message) {
 document.addEventListener('DOMContentLoaded', function() {
     loadProducts();
 
+    // Добавляем обработчик для кнопок "назад/вперед" браузера
+    window.addEventListener('popstate', handleBrowserNavigation);
+
     document.querySelector('.cart-button').addEventListener('click', showCart);
 
     document.querySelectorAll('.modal-close').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.target.closest('.product-modal, .cart-modal').classList.remove('active');
+            const modal = e.target.closest('.product-modal, .cart-modal');
+            if (modal) {
+                if (modal.classList.contains('product-modal')) {
+                    closeModal('product-modal');
+                } else {
+                    closeModal('cart-modal');
+                }
+            }
         });
     });
 

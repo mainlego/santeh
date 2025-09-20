@@ -704,8 +704,14 @@ body {
     white-space: pre-line;
 }
 
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 .add-to-cart-btn {
-    width: 100%;
+    flex: 1;
     padding: 1rem;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
     color: var(--white);
@@ -740,6 +746,29 @@ body {
 .add-to-cart-btn:hover::before {
     width: 300px;
     height: 300px;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.share-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(8, 145, 178, 0.2);
 }
 
 .cart-modal .modal-content {
@@ -1188,5 +1217,13 @@ body {
     .wholesale-btn {
         padding: 0.875rem 1.5rem;
         font-size: 0.875rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .share-btn {
+        justify-content: center;
     }
 }
