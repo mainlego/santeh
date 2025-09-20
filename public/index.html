@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АкваПрофи - Профессиональная сантехника</title>
+    <meta name="description" content="АкваТек - профессиональная сантехника от ИП Фролова О.Г. Широкий ассортимент смесителей, аксессуаров. Оптовые и розничные продажи. Доставка по Москве и МО.">
+    <meta name="keywords" content="сантехника, смесители, краны, аксессуары, оптом, Москва, доставка">
+
+    <!-- Open Graph для социальных сетей -->
+    <meta property="og:title" content="АкваПрофи - Профессиональная сантехника">
+    <meta property="og:description" content="Профессиональная сантехника. Широкий ассортимент смесителей и аксессуаров. Оптовые и розничные продажи.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="favicon.svg">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <a href="tel:+79254182588" class="phone-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        +7 925 418-25-88
+                    </a>
+                    <span class="work-hours">Пн-Пт: 9:00 - 18:00</span>
+                </div>
+                <div class="company-name">ИП Фролова Ольга Геннадьевна</div>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-wrapper">
+                    <svg class="logo-svg" width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#155e75;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#67e8f9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Внешний круг -->
+                        <circle cx="24" cy="24" r="22" fill="url(#logoGradient)" stroke="#ffffff" stroke-width="2"/>
+
+                        <!-- Капля воды -->
+                        <path d="M24 8 C24 8, 16 18, 16 26 C16 30.4 19.6 34 24 34 C28.4 34 32 30.4 32 26 C32 18 24 8 24 8Z"
+                              fill="url(#waterGradient)" opacity="0.9"/>
+
+                        <!-- Блик на капле -->
+                        <ellipse cx="21" cy="22" rx="3" ry="4" fill="#ffffff" opacity="0.4"/>
+
+                        <!-- Труба/кран стилизованный -->
+                        <rect x="10" y="23" width="6" height="3" fill="#ffffff" opacity="0.8" rx="1"/>
+                        <rect x="32" y="23" width="6" height="3" fill="#ffffff" opacity="0.8" rx="1"/>
+                    </svg>
+                    <div class="logo-text-wrapper">
+                        <h1 class="logo">АкваПрофи</h1>
+                        <span class="logo-subtitle">Профессиональная сантехника от ИП Фролова О.Г.</span>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <div class="search-container">
+                        <input type="text" id="search" placeholder="Поиск товаров...">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="cart-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 13V17M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM18 20C18 20.5523 17.5523 21 17 21C16.4477 21 16 20.5523 16 20C16 19.4477 16.4477 19 17 19C17.5523 19 18 19.4477 18 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="categories-nav">
+                <button class="scroll-btn prev" id="scroll-prev">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="categories-wrapper" id="categories-wrapper">
+                    <button class="category-btn active" data-category="all">
+                        <span class="category-name">Все товары</span>
+                        <span class="category-count">0</span>
+                    </button>
+                </div>
+                <button class="scroll-btn next" id="scroll-next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="filters-section">
+                <div class="filters-header">
+                    <h3>Фильтры</h3>
+                    <button class="reset-filters">Сбросить</button>
+                </div>
+                <div class="filter-group">
+                    <h4>Цена</h4>
+                    <div class="price-range">
+                        <input type="number" id="min-price" placeholder="От">
+                        <span>—</span>
+                        <input type="number" id="max-price" placeholder="До">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>Наличие</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="in-stock">
+                        <span>Только в наличии</span>
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <h4>Сортировка</h4>
+                    <select id="sort-select">
+                        <option value="name">По названию</option>
+                        <option value="price-asc">Цена: по возрастанию</option>
+                        <option value="price-desc">Цена: по убыванию</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-section">
+                <div class="products-header">
+                    <h2 id="category-title">Все товары</h2>
+                    <span class="products-count"></span>
+                </div>
+                <div class="products-grid" id="products-container">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="wholesale-section">
+        <div class="container">
+            <div class="wholesale-content">
+                <div class="wholesale-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+                        <path d="M20 28 L20 40 L28 44 L36 40 L36 28 L28 24 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M28 28 L28 40 L36 44 L44 40 L44 28 L36 24 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 28 L28 32 L36 28" stroke="currentColor" stroke-width="2"/>
+                        <path d="M28 32 L36 36 L44 32" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="wholesale-text">
+                    <h2 class="wholesale-title">Оптовые поставки</h2>
+                    <p class="wholesale-subtitle">Специальные условия для оптовых покупателей</p>
+                    <div class="wholesale-features">
+                        <div class="wholesale-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Скидки от объема заказа</span>
+                        </div>
+                        <div class="wholesale-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Отсрочка платежа для постоянных клиентов</span>
+                        </div>
+                        <div class="wholesale-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Доставка по Москве и Московской области</span>
+                        </div>
+                        <div class="wholesale-feature">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Полный пакет документов</span>
+                        </div>
+                    </div>
+                    <div class="wholesale-contacts">
+                        <p class="wholesale-cta">Для получения оптового прайс-листа и условий сотрудничества свяжитесь с нами:</p>
+                        <div class="wholesale-buttons">
+                            <a href="tel:+79254182588" class="wholesale-btn primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" fill="currentColor"/>
+                                </svg>
+                                +7 925 418-25-88
+                            </a>
+                            <a href="mailto:olgafrolovasales@yandex.com" class="wholesale-btn secondary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Отправить запрос
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="product-modal" id="product-modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 class="modal-title"></h2>
+                    <p class="modal-article"></p>
+                    <p class="modal-price"></p>
+                    <p class="modal-stock"></p>
+                    <div class="modal-description"></div>
+                    <div class="modal-actions">
+                        <button class="add-to-cart-btn">Добавить в корзину</button>
+                        <button class="share-btn" onclick="shareProduct()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92S19.61 16.08 18 16.08z" fill="currentColor"/>
+                            </svg>
+                            Поделиться
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Корзина</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cart-total">0 ₽</span>
+            </div>
+            <button class="checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>О компании</h3>
+                    <p class="company-full-name">Индивидуальный предприниматель<br>Фролова Ольга Геннадьевна</p>
+                    <div class="contacts-footer">
+                        <p><strong>Телефон:</strong> <a href="tel:+79254182588">+7 925 418-25-88</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:olgafrolovasales@yandex.com">olgafrolovasales@yandex.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Реквизиты</h3>
+                    <div class="requisites">
+                        <p><strong>ОГРНИП:</strong> 320508100149673</p>
+                        <p><strong>ИНН:</strong> 540405813500</p>
+                        <p><strong>Дата регистрации:</strong> 14 мая 2020 г.</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Налоговая информация</h3>
+                    <div class="tax-info">
+                        <p><strong>Регистратор:</strong><br>Межрайонная инспекция ФНС №23<br>по Московской области</p>
+                        <p><strong>Налоговый орган:</strong><br>Межрайонная инспекция ФНС России №13<br>по Московской области</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2020-2024 ИП Фролова Ольга Геннадьевна. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

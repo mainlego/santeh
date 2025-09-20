@@ -1,0 +1,44 @@
+# Python files
+*.py
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Excel files and templates
+*.xlsx
+*.xls
+template*
+*template*
+
+# Analysis files
+analyze_*
+extract_*
+process_*
+create_*
+find_*
+fix_*
+transfer_*
+detailed_*
+
+# Other files
+.git/
+.gitignore
+README.md
+DEPLOY.md
+
+# Keep only web files
+!index.html
+!styles.css
+!app.js
+!vercel.json
+!favicon.svg
+!products_clean.json
+!images/
