@@ -390,8 +390,54 @@ function showNotification(message) {
     }, 3000);
 }
 
+function initWaterInteractions() {
+    const waterRipples = document.getElementById('water-ripples');
+
+    function createRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        ripple.style.left = x - 75 + 'px';
+        ripple.style.top = y - 75 + 'px';
+
+        waterRipples.appendChild(ripple);
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 2000);
+    }
+
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.product-card') ||
+            e.target.closest('.modal') ||
+            e.target.closest('button') ||
+            e.target.closest('input') ||
+            e.target.closest('.header') ||
+            e.target.closest('.categories-nav')) {
+            return;
+        }
+
+        createRipple(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('touchend', function(e) {
+        if (e.target.closest('.product-card') ||
+            e.target.closest('.modal') ||
+            e.target.closest('button') ||
+            e.target.closest('input') ||
+            e.target.closest('.header') ||
+            e.target.closest('.categories-nav')) {
+            return;
+        }
+
+        if (e.changedTouches && e.changedTouches[0]) {
+            createRipple(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     loadProducts();
+    initWaterInteractions();
 
     // Добавляем обработчик для кнопок "назад/вперед" браузера
     window.addEventListener('popstate', handleBrowserNavigation);

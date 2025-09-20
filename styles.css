@@ -28,6 +28,141 @@ body {
     min-height: 100vh;
     color: var(--text-dark);
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.water-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.water-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 120px;
+    background: linear-gradient(90deg,
+        rgba(8, 145, 178, 0.1) 0%,
+        rgba(14, 116, 144, 0.15) 25%,
+        rgba(8, 145, 178, 0.1) 50%,
+        rgba(14, 116, 144, 0.15) 75%,
+        rgba(8, 145, 178, 0.1) 100%);
+    border-radius: 50% 50% 0 0;
+    animation: waveMovement 15s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.water-waves::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(90deg,
+        rgba(8, 145, 178, 0.08) 0%,
+        rgba(14, 116, 144, 0.12) 50%,
+        rgba(8, 145, 178, 0.08) 100%);
+    border-radius: 50% 50% 0 0;
+    animation: waveMovement 12s ease-in-out infinite reverse;
+}
+
+.water-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bubble {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%,
+        rgba(255, 255, 255, 0.8),
+        rgba(8, 145, 178, 0.3),
+        rgba(8, 145, 178, 0.1));
+    border-radius: 50%;
+    animation: bubbleFloat linear infinite;
+    opacity: 0;
+}
+
+.bubble:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-duration: 10s; animation-delay: 1s; }
+.bubble:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-duration: 6s; animation-delay: 2s; }
+.bubble:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-duration: 9s; animation-delay: 0.5s; }
+.bubble:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-duration: 11s; animation-delay: 1.5s; }
+.bubble:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-duration: 7s; animation-delay: 3s; }
+.bubble:nth-child(7) { width: 9px; height: 9px; left: 70%; animation-duration: 8s; animation-delay: 2.5s; }
+.bubble:nth-child(8) { width: 11px; height: 11px; left: 80%; animation-duration: 10s; animation-delay: 1s; }
+.bubble:nth-child(9) { width: 5px; height: 5px; left: 90%; animation-duration: 5s; animation-delay: 3.5s; }
+.bubble:nth-child(10) { width: 13px; height: 13px; left: 15%; animation-duration: 12s; animation-delay: 0.8s; }
+
+.water-ripples {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
+
+.ripple {
+    position: absolute;
+    border: 2px solid rgba(8, 145, 178, 0.4);
+    border-radius: 50%;
+    animation: rippleEffect 2s ease-out;
+    pointer-events: none;
+}
+
+@keyframes waveMovement {
+    0%, 100% {
+        transform: translateX(-25%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-30%) rotate(1deg);
+    }
+    50% {
+        transform: translateX(-20%) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-35%) rotate(-1deg);
+    }
+}
+
+@keyframes bubbleFloat {
+    0% {
+        bottom: -20px;
+        opacity: 0;
+        transform: translateX(0) scale(0.8);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(50px) scale(1.2);
+    }
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 150px;
+        height: 150px;
+        opacity: 0;
+    }
 }
 
 .container {
@@ -1217,6 +1352,21 @@ body {
 
     .footer-content {
         grid-template-columns: 1fr;
+    }
+
+    .water-waves {
+        height: 80px;
+        animation-duration: 20s;
+    }
+
+    .bubble {
+        display: none;
+    }
+
+    .bubble:nth-child(1),
+    .bubble:nth-child(3),
+    .bubble:nth-child(5) {
+        display: block;
     }
 
     .wholesale-content {
