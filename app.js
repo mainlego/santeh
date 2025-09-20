@@ -189,7 +189,7 @@ function showProductModal(product) {
     modal.classList.add('active');
 
     // Обновляем заголовок страницы
-    document.title = `${product.name} - СанТехКаталог - ИП Фролова О.Г.`;
+    document.title = `${product.name} - AquaTek - Профессиональная сантехника`;
 }
 
 function addToCart(product) {
@@ -274,10 +274,10 @@ function closeModal(modalId) {
         // Возвращаемся к главной странице
         history.pushState(
             { type: 'main' },
-            'СанТехКаталог - ИП Фролова О.Г.',
+            'AquaTek - Профессиональная сантехника',
             window.location.pathname
         );
-        document.title = 'Каталог сантехники - ИП Фролова О.Г.';
+        document.title = 'AquaTek - Профессиональная сантехника';
         currentProductId = null;
     }
 }
@@ -336,7 +336,7 @@ function shareProduct() {
         // Используем нативный API для мобильных устройств
         navigator.share({
             title: document.title,
-            text: 'Посмотрите этот товар в каталоге сантехники',
+            text: 'Посмотрите этот товар в AquaTek - профессиональная сантехника',
             url: currentUrl
         });
     } else {
