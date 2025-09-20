@@ -859,11 +859,170 @@ body {
     color: var(--text-light);
 }
 
+.wholesale-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 4rem 0;
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.wholesale-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+}
+
+.wholesale-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(8, 145, 178, 0.1);
+    position: relative;
+}
+
+.wholesale-icon {
+    color: var(--primary-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.wholesale-text {
+    flex: 1;
+}
+
+.wholesale-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.wholesale-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.wholesale-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.wholesale-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.wholesale-feature svg {
+    color: var(--success-color);
+    flex-shrink: 0;
+}
+
+.wholesale-feature span {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.wholesale-contacts {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.wholesale-cta {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.wholesale-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.wholesale-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.wholesale-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.wholesale-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.wholesale-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+}
+
+.wholesale-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(8, 145, 178, 0.4);
+}
+
+.wholesale-btn.secondary {
+    background: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.wholesale-btn.secondary:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
 .footer {
     background: linear-gradient(135deg, var(--primary-dark) 0%, #0f172a 100%);
     color: var(--white);
     padding: 3rem 0 1rem;
-    margin-top: 4rem;
+    margin-top: 0;
 }
 
 .footer-content {
@@ -1001,5 +1160,33 @@ body {
 
     .logo-subtitle {
         font-size: 0.625rem;
+    }
+
+    .wholesale-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .wholesale-title {
+        font-size: 2rem;
+    }
+
+    .wholesale-subtitle {
+        font-size: 1rem;
+    }
+
+    .wholesale-features {
+        grid-template-columns: 1fr;
+    }
+
+    .wholesale-buttons {
+        justify-content: center;
+    }
+
+    .wholesale-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.875rem;
     }
 }
