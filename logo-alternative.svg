@@ -1,0 +1,46 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#155e75;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+        </linearGradient>
+
+        <filter id="dropShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dx="0" dy="2" result="offsetblur"/>
+            <feFlood flood-color="#000000" flood-opacity="0.1"/>
+            <feComposite in2="offsetblur" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Основная фигура - стилизованная капля/труба -->
+    <g filter="url(#dropShadow)">
+        <!-- Круг с инициалами -->
+        <circle cx="30" cy="30" r="25" fill="url(#mainGrad)" stroke="#ffffff" stroke-width="1"/>
+
+        <!-- Инициалы ФОГ -->
+        <text x="30" y="38" font-family="Arial, sans-serif" font-size="20" font-weight="bold"
+              fill="#ffffff" text-anchor="middle">ФО</text>
+
+        <!-- Волна внутри круга -->
+        <path d="M 10 30 Q 20 25, 30 30 T 50 30"
+              stroke="#ffffff" stroke-width="2" fill="none" opacity="0.4"/>
+    </g>
+
+    <!-- Текст компании -->
+    <text x="65" y="28" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600"
+          fill="url(#textGrad)">СанТехКаталог</text>
+
+    <text x="65" y="44" font-family="Inter, Arial, sans-serif" font-size="11"
+          fill="#64748b">Профессиональная сантехника</text>
+</svg>
